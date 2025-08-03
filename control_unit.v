@@ -77,7 +77,7 @@ always @(*) begin
 
         JALI: next_state = JAL;
 
-        JALRI: next_state = JALR;
+        JALRI: next_state = JALR_PC;
 
         default: next_state = FETCH;
       endcase
@@ -190,11 +190,11 @@ always @(*) begin
       pc_write = 1;
       pc_source = 1;
       aluop = 2'b00;
-      is_immediate = 1'b1; // Colocando isso o gabarito bateu, porem no grafico de estados nao consta esse campo 'is_imediate'
+      is_immediate = 1'b1;
     end
 
     AUIPC: begin
-      alu_src_a = 2'b10; // Talvez aqui esteja errado o gabarito, pois no grafico de estados indica que o valor eh 2'b00
+      alu_src_a = 2'b10;
       alu_src_b = 2'b10;
       aluop = 2'b00;
     end
